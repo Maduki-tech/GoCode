@@ -34,7 +34,8 @@ func readFile(fileName string) {
 
 	switch fileType {
 	case "png":
-		content, err := png.Decode(file)
+		decoder := png.New()
+		content, err := decoder.Decode(file)
 		if err != nil {
 			fmt.Println(err)
 			return
